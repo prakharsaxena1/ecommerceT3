@@ -66,6 +66,7 @@ export default function RootLayout({
               <Toaster
                 position="top-center"
                 reverseOrder={false}
+                toastOptions={{ duration: 10000 }}
               />
               {children}
             </TRPCReactProvider>
