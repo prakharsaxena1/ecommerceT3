@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import toast from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 import Pagination from "../_components/Pagination";
 import { api } from "~/trpc/react";
@@ -15,6 +16,7 @@ export default function Interests() {
   React.useEffect(() => {
     if (!globalStore.isAuth) {
       router.replace("/login");
+      toast.error('You are not logged in to view this page');
     }
   }, [globalStore.isAuth, router]);
 

@@ -1,5 +1,6 @@
 "use client";
 
+import toast from 'react-hot-toast';
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
@@ -19,7 +20,10 @@ export default function Register() {
       if (res.success) {
         router.replace(`/verify/${res.token}`)
         globalStore.lastUrl = 'register';
+        toast.success(`Your OTP is: ${res.otp}`);
+        return;
       }
+      toast.error(`Error getting OTP`);
     },
   });
   return (
